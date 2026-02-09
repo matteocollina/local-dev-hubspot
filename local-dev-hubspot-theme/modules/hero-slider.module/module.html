@@ -1,0 +1,57 @@
+{% set fallback_images = [
+  {
+    "src": get_asset_url("./images/slide-1.jpg"),
+    "alt": "Stock placeholder image with grayscale geometrical mountain landscape"
+  },
+  {
+    "src": get_asset_url("./images/slide-2.jpg"),
+    "alt": "Team members collaborating around a table"
+  },
+  {
+    "src": get_asset_url("./images/slide-3.jpg"),
+    "alt": "Abstract large placeholder image"
+  }
+] %}
+
+<div
+  class="hero-slider"
+  data-hero-slider
+  data-hero-slider-autoplay="{{ module.settings.autoplay ? 'true' : 'false' }}"
+  data-hero-slider-autoplay-delay="{{ module.settings.autoplay_delay }}"
+  aria-roledescription="carousel"
+  aria-label="Hero slider"
+>
+  <div class="hero-slider__slides" data-hero-slider-slides>
+    {% if module.slides and module.slides|length > 0 %}
+      {% for slide in module.slides %}
+        {% set fallback = fallback_images[loop.index0 % fallback_images|length] %}
+        {% set image_src = slide.image.src or fallback.src %}
+        {% set image_alt = slide.image.alt or fallback.alt %}
+        {% set loading_attr = slide.image.loading != "disabled" ? slide.image.loading : "lazy" %}
+        <div class="hero-slider__slide{% if loop.first %} is-active{% endif %}" data-hero-slide aria-hidden="{{ 'false' if loop.first else 'true' }}">
+          <img class="hero-slider__image" src="{{ image_src|escape_url }}" alt="{{ image_alt|escape_attr }}" loading="{{ loading_attr }}">
+        </div>
+      {% endfor %}
+    {% else %}
+      {% for fallback in fallback_images %}
+        <div class="hero-slider__slide{% if loop.first %} is-active{% endif %}" data-hero-slide aria-hidden="{{ 'false' if loop.first else 'true' }}">
+          <img class="hero-slider__image" src="{{ fallback.src|escape_url }}" alt="{{ fallback.alt|escape_attr }}" loading="lazy">
+        </div>
+      {% endfor %}
+    {% endif %}
+  </div>
+  {% if module.content %}
+    <div class="hero-slider__content">
+      <div class="hero-slider__content-inner">
+        {{ module.content|sanitize_html }}
+      </div>
+    </div>
+  {% endif %}
+  <button class="hero-slider__control hero-slider__control--prev" type="button" aria-label="Previous slide" data-hero-slider-prev>
+    Prev
+  </button>
+  <button class="hero-slider__control hero-slider__control--next" type="button" aria-label="Next slide" data-hero-slider-next>
+    Next
+  </button>
+  <div class="hero-slider__dots" data-hero-slider-dots></div>
+</div>
