@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "html-hubl": "html",
+        "css-hubl": "css",
+        "*.html": "html-hubl",
+        "*.css": "css-hubl"
+    }
+}

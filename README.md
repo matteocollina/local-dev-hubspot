@@ -1,5 +1,26 @@
 # Sviluppo in locale
 
+## Prerequisiti
+
+1. Installa estensione app HubSpot nel proprio IDE che ti offrirà tantissime funzioni utili come il completamento automatico, le voci del menu contestuale:
+https://developers.hubspot.com/docs/developer-tooling/local-development/vs-code-extension#hubl-language-support
+
+2. Per abilitare il supporto linguistico HubL nei tuoi file, configura le impostazioni di associazione dei file di VS Code:
+    2.1 Crea una cartella .vscode
+    2.2 Crea un file `settings.json` con il seguente contenuto:
+
+```json
+{
+    "files.associations": {
+        "html-hubl": "html",
+        "css-hubl": "css",
+        "*.html": "html-hubl",
+        "*.css": "css-hubl"
+    }
+}
+```
+## Development 
+
 1. Creazione auth config file
 hs init
 
