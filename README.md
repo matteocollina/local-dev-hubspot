@@ -19,3 +19,5 @@ hs create website-theme local-dev-hubspot-theme
 ```bash
 hs upload local-dev-hubspot-theme local-dev-hubspot-theme
 ```
+
+6. Modifica le info (es. nome) del tema in `theme.json`
