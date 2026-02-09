@@ -1,9 +1,9 @@
 {
   "label": "Local Dev HubSpot Theme",
   "author": {
-    "name": "HubSpot",
-    "email": "hs-content-assets@hubspot.com",
-    "url": "https://www.hubspot.com/"
+    "name": "DMA Dev",
+    "email": "dev@dma.it",
+    "url": "https://dma.it/"
 	},
   "documentation_url": "https://developers.hubspot.com/docs/cms/building-blocks/themes/hubspot-cms-boilerplate",
   "example_url": "https://boilerplate.hubspotcms.com",
