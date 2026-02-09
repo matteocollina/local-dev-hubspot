@@ -38,7 +38,14 @@ hs create website-theme local-dev-hubspot-theme
 
 5. Carica su HS
 ```bash
-hs upload local-dev-hubspot-theme local-dev-hubspot-theme
+hs cms upload local-dev-hubspot-theme local-dev-hubspot-theme
 ```
+ti restituisce il preview url: https://app.hubspot.com/theme-editor/5080604/edit/local-dev-hubspot-theme
+
 
 6. Modifica le info (es. nome) del tema in `theme.json`
+
+7. Esegui il watch delle modifiche
+```bash
+hs cms watch local-dev-hubspot-theme local-dev-hubspot-theme --initial-upload
+```
